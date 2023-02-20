@@ -38,14 +38,14 @@ int main(void){
 	TTF_Init();
 	TTF_Font* font = TTF_OpenFont("DeterminationSansWebRegular-369X.ttf",36);
 	SDL_Window *w = SDL_CreateWindow("Speed Snake!",
-                                          SDL_WINDOWPOS_CENTERED,
-                                          SDL_WINDOWPOS_CENTERED,
-                                          WIDTH, HEIGHT,
-                                          0);
+									 SDL_WINDOWPOS_CENTERED,
+									 SDL_WINDOWPOS_CENTERED,
+									 WIDTH, HEIGHT,
+									 0);
 	SDL_Renderer *r = SDL_CreateRenderer(w, -1, SDL_RENDERER_ACCELERATED);
-    SDL_RenderClear(r);
-    SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
-    SDL_RenderPresent(r);
+	SDL_RenderClear(r);
+	SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
+	SDL_RenderPresent(r);
 	while(1){
 		Input(w, r,&xFood,&yFood, &speed, &x, &y, &score,font,&finalScore);
 	}
@@ -125,30 +125,30 @@ void Input(SDL_Window* w, SDL_Renderer* r, int* xFood, int* yFood, int* speed, i
 }
 
 void CreatePlayer(SDL_Window* w, SDL_Renderer* r,int* x, int* y){
-    SDL_Rect rect;
-    rect.x = (WIDTH/8)+(3*(*x*(WIDTH/GRID_WIDTH))/4);
-    rect.y = (HEIGHT/8)+(3*(*y*(HEIGHT/GRID_HEIGHT))/4);
-    rect.w = (3*WIDTH/4)/GRID_WIDTH;
-    rect.h = (3*HEIGHT/4)/GRID_HEIGHT;
-    SDL_SetRenderDrawColor(r,0, 140, 0, 255);
-    SDL_RenderFillRect(r, &rect);
-    SDL_SetRenderDrawColor(r,0, 255, 0, 255);
-    SDL_RenderDrawRect(r, &rect);
-    SDL_RenderPresent(r);
+	SDL_Rect rect;
+	rect.x = (WIDTH/8)+(3*(*x*(WIDTH/GRID_WIDTH))/4);
+	rect.y = (HEIGHT/8)+(3*(*y*(HEIGHT/GRID_HEIGHT))/4);
+	rect.w = (3*WIDTH/4)/GRID_WIDTH;
+	rect.h = (3*HEIGHT/4)/GRID_HEIGHT;
+	SDL_SetRenderDrawColor(r,0, 140, 0, 255);
+	SDL_RenderFillRect(r, &rect);
+	SDL_SetRenderDrawColor(r,0, 255, 0, 255);
+	SDL_RenderDrawRect(r, &rect);
+	SDL_RenderPresent(r);
 	SDL_UpdateWindowSurface(w);
 	SDL_RenderPresent(r);
 }
 
 void CreateGrid(SDL_Window* w, SDL_Renderer* r){
-    SDL_Rect rect;
-    rect.x = WIDTH/8;
-    rect.y = HEIGHT/8;
-    rect.w = 3*WIDTH/4;
-    rect.h = 3*HEIGHT/4;
-    SDL_SetRenderDrawColor(r, 40, 40, 40, 0);
-    SDL_RenderFillRect(r, &rect);
-    SDL_SetRenderDrawColor(r, 255, 255, 255,0);
-    SDL_RenderDrawRect(r, &rect);
+	SDL_Rect rect;
+	rect.x = WIDTH/8;
+	rect.y = HEIGHT/8;
+	rect.w = 3*WIDTH/4;
+	rect.h = 3*HEIGHT/4;
+	SDL_SetRenderDrawColor(r, 40, 40, 40, 0);
+	SDL_RenderFillRect(r, &rect);
+	SDL_SetRenderDrawColor(r, 255, 255, 255,0);
+	SDL_RenderDrawRect(r, &rect);
 	SDL_RenderPresent(r);
 }
 
@@ -207,16 +207,16 @@ void DirectionToPosition(int d,SDL_Renderer* r,SDL_Window* w, int* x, int* y, in
 }
 
 void CreateFood(SDL_Window* w, SDL_Renderer* r,int* x, int* y, int* xFood, int* yFood){
-		SDL_Rect rect;
-		rect.x = (WIDTH/8)+(3*(*xFood*(WIDTH/GRID_WIDTH))/4);
-		rect.y = (HEIGHT/8)+(3*(*yFood*(HEIGHT/GRID_HEIGHT))/4);
-		rect.w = (3*WIDTH/4)/GRID_WIDTH;
-		rect.h = (3*HEIGHT/4)/GRID_HEIGHT;
-		SDL_SetRenderDrawColor(r,140, 0, 0, 255);
-		SDL_RenderFillRect(r, &rect);
-		SDL_SetRenderDrawColor(r,255, 0, 0, 255);
-		SDL_RenderDrawRect(r, &rect);
-		SDL_RenderPresent(r);
+	SDL_Rect rect;
+	rect.x = (WIDTH/8)+(3*(*xFood*(WIDTH/GRID_WIDTH))/4);
+	rect.y = (HEIGHT/8)+(3*(*yFood*(HEIGHT/GRID_HEIGHT))/4);
+	rect.w = (3*WIDTH/4)/GRID_WIDTH;
+	rect.h = (3*HEIGHT/4)/GRID_HEIGHT;
+	SDL_SetRenderDrawColor(r,140, 0, 0, 255);
+	SDL_RenderFillRect(r, &rect);
+	SDL_SetRenderDrawColor(r,255, 0, 0, 255);
+	SDL_RenderDrawRect(r, &rect);
+	SDL_RenderPresent(r);
 }
 
 void DrawText(SDL_Window* w, SDL_Renderer* r,int* score,TTF_Font* font, int finalScore){
